@@ -1,0 +1,21 @@
+#if you access the URL without trailing slash '/' ,flask redirects you to URL with trailing slash by default,
+#which help avoid indexing same webpages twice
+
+from flask import Flask
+app=Flask(__name__)
+@app.route('/Home/')
+def fun1():
+    return 'Home Page with /'
+if __name__=='__main__':
+    app.run(debug=True)
+
+#if you access the URL without trailing slash '/' ,then you will be directed to page corresponds to that because program only specifies one
+#URL without trailing slash,But if you access the URL with trailing slash '/' ,you will be given error"NOT FOUND"because that URL not specified program
+
+from flask import Flask
+app=Flask(__name__)
+@app.route('/Home')
+def fun1():
+    return 'Home Page'
+if __name__=='__main__':
+    app.run(debug=True)
